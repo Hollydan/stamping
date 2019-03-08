@@ -5,7 +5,7 @@
 <view class="container">
 <scroll-view  scroll-y="true"  class="page-body" bindscrolltolower="loadMore">
   <!--banner-->
-  <view class="swiper">
+  <!-- view class="swiper">
       <swiper indicator-dots="{{indicatorDots}}" vertical="{{vertical}}"
               autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
           <block wx:for-items="{{banner_url}}" wx:key="item.id">
@@ -19,7 +19,7 @@
               </swiper-item>
           </block>
       </swiper>
-  </view>
+  </view -->
   <!--nav-->
   <view class="nav_top">
     <block wx:for="{{navTopItems}}" wx:key="item.id">
@@ -48,7 +48,7 @@
                     <view class="section_cont_sub">
                         <text>{{item.subject}}</text>
                     </view>
-                    <view class="section_cont_price">人数：{{item.price}}</view>
+                    <view class="section_cont_price">人数：{{item.num}}</view>
                     <view>{{item.message}}</view>
                 </view>
                 <!--book-->

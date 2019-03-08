@@ -2,7 +2,12 @@
  * banner数据
  */ 
 function getBannerData(){
-  var arr = ['../../images/logo.svg', '../../images/Goobike.jpg', '../../images/Gooparts.jpg', '../../images/CSR.jpg']
+  var arr = [
+    '../../images/logo.svg', 
+    '../../images/Goobike.jpg', 
+    '../../images/Gooparts.jpg', 
+    '../../images/CSR.jpg'
+    ]
     return arr
 }
 /*
@@ -45,78 +50,34 @@ function getIndexNavSectionData(){
     var arr = [
                 [
                     {
-                        
-                        subject:"グーバイクチーム（東京）",
-                        coverpath:"../../images/goobike.png",
-                        price:'55名',
-                        message:'お客様の満足度はアップしろ！'
+                      id: 1,
+                      subject:"グーバイクチーム（東京）",
+                      coverpath:"../../images/goobike.png",
+                      num:'55名',
+                      message:'お客様の満足度はアップしろ！'
                     },
                     {
-                        
+                      id: 2,
                       subject:"グーバイクチーム（西安）",
                       coverpath:"../../images/goobike.png",
-                      price:'66名',
-                        message:'我们一直在努力！'
+                      num:'66名',
+                      message:'我们一直在努力！'
                     },
                     {
-                        
-                        subject:"GooNET（東京）",
-                        coverpath:"../../images/recommend_img_03.png",
-                        price:'50名',
-                        message:'我们追求的是没有最长只有更长！'
+                      id: 3, 
+                      subject:"GooNET（東京）",
+                      coverpath:"../../images/recommend_img_03.png",
+                      num:'50名',
+                      message:'我们追求的是没有最长只有更长！'
                     },
                     {
-                        
+                      id: 4,
                       subject: "GooNET（西安）",
-                        coverpath:"../../images/recommend_img_05.png",
-                        price:'60名',
-                        message:'站着客户的角度去考虑看看。'
+                      coverpath:"../../images/recommend_img_05.png",
+                      num:'60名',
+                      message:'站着客户的角度去考虑看看。'
                     }
-                ],
-                [
-                    {
-                        artype:'nails',
-                        subject:"秋季自然特价美甲",
-                        coverpath:"../../images/recommend_img_01.png",
-                        price:'¥198',
-                        message:'我们追求的是没有最长只有更长！'
-                    }
-                ],
-                [
-                    {
-                        artype:'beauty',
-                        subject:"爱丽克EircParisSalon",
-                        coverpath:"../../images/recommend_img_03.png",
-                        price:'¥1588',
-                        message:'我们追求的是没有最长只有更长！'
-                    },
-                    {
-                        artype:'beauty',
-                        subject:" 画对了妆，微微一笑颜值倍儿高！",
-                        coverpath:"../../images/recommend_img_06.png",
-                        price:'¥198',
-                        message:'《微微一笑很倾城》的剧照简直美腻到不要不要的'
-                    }
-                ],
-                [
-                    
-                    {
-                        artype:'hair',
-                        subject:"伊本造型",
-                        coverpath:"../../images/recommend_img_05.png",
-                        price:'¥1588',
-                        message:'伊本造型是由著名形象设计师杨进先生创办。'
-                    }
-                ],
-                [
-                    {
-                        artype:'eyelash',
-                        subject:"睫毛稀疏 种睫毛来帮忙",
-                        coverpath:"../../images/recommend_img_02.png",
-                        price:'¥1888',
-                        message:'我们追求的是没有最长只有更长！'
-                    }
-                ] 
+                ]
             ]
     return arr
 }

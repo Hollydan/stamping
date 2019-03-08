@@ -1,14 +1,9 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/detail/detail",
-    "pages/book/book",
     "pages/stamping/stamping",
-    "pages/technician/technician",
-    "pages/technicain_detail/technicain_detail",
-    "pages/edit_addr/edit_addr",
-    "pages/user/user",
-    "pages/Timer"
+    "pages/log/log",
+    "pages/user/user"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -29,7 +24,7 @@
         "selectedIconPath": "images/index_icon_HL.png"
       },
       {
-        "pagePath": "pages/technician/technician",
+        "pagePath": "pages/log/log",
         "text": "個人打刻情報",
         "iconPath": "images/skill_icon.png",
         "selectedIconPath": "images/skill_icon_HL.png"

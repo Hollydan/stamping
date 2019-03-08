@@ -13,11 +13,11 @@ page{
   font-family:'微软雅黑';
 } 
 /* 滚动条 */
-.page-body {
+/*.page-body {
   display: flex;
   flex: 1;
   flex-direction: column;
-}
+}*/
 /* 提示语 */
 .tips {
   font-size: 28rpx;

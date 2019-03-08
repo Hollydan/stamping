@@ -4,42 +4,21 @@
         <image src="../../images/goobike.png" mode="aspectFill"></image>
     </view>
 
-    <view class="ar_picker">
-        <view class="ar_picker_wrap">
-        <picker bindchange="bindAddrPickerChange" value="{{addrIndex}}" range="{{addrArray}}">
-            <view>
-                <text>{{addrArray[addrIndex]}}</text>
-            </view>
-        </picker>
-        </view>
-    </view>
-
     <view class="ar_cont">
-      <view >
+      <view>
        <text class="ar_cont_h1">社員姓名</text>
-       <view class="ar_date_time">
-         <button class="ar_name" bindtap="bindToastTap">王全勝1</button>
-         <button class="ar_name" bindtap="bindToastTap">王全勝2</button>
-         <button class="ar_name" bindtap="bindToastTap">王全勝3</button>
+       <view wx:for-items="{{keys}}" wx:for-index="idx" wx:key="{{index}}">
+         <button class="ar_name" bindtap='click' data-id="{{idx}}" data-card="{{item.card_id}}" data-name="{{item.name}}">{{item.name}}</button>
        </view>
-      </view>    
- 
-     <view > 
-       <button class="ar_name" bindtap="bindToastTap">李金水1</button>
-       <button class="ar_name" bindtap="bindToastTap">李金水2</button>
-       
+       <!-- 弹框开始 -->
+      <modal id="modal" hidden="{{hiddenKey}}" title="daka" confirm-text="提交" cancel-text="取消" bindconfirm="keyCheck" bindcancel="keyCancel">
+        key：
+        <input name="key" value="" class='text' type='text' password='false' placeholder='请输入。。。' maxlength="10" auto-focus="true" confirm-type="OK" bindconfirm="keyCheck" bindinput='getKey'></input>
+        <text class='alert' hidden="{{hiddenAlert}}">请重新输入。。。</text>
+      </modal>
+      <!-- 弹框结束 -->
       </view>
-           
-       
-
-        <text class="ar_cont_h1">社員姓名</text>
-
-        <button class="ar_name" bindtap="bindToastTap">王全勝1</button><button class="ar_name" bindtap="bindToastTap">李金水</button><button class="ar_name" bindtap="bindToastTap">王全勝3</button>
-        
-        <button class="ar_book" bindtap="bindToastTap">确认打刻</button>
-        <toast hidden="{{bookToastHidden}}"  bindchange="hideToast">
-        打刻成功
-        </toast>
-    </view>
+        <toast hidden="{{bookToastHidden}}"  bindchange="hideToast">打刻成功</toast>
+      </view>
 
 </view>

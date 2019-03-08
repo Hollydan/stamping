@@ -1,50 +1,99 @@
 var app = getApp()
 var mydata = require('../../utils/data')
 var util = require('../../utils/util')
+var passwd = require('../../utils/passwd.js')
 
 Page( {
   data: {
+    id: '',
+    key: '',
+    card_id: '',
+    name: '',
+    hiddenAlert: true,
+    hiddenKey: true,
+    bookToastHidden: true,
     addrArray:util.replacePhone(mydata.userData().addrs,true),
-    addrIndex:0,
-    date : '2016-10-14',
-    time : '12:00',
-    bookToastHidden:true
+    keys: '',
+    aid: 0
   },
   onLoad: function (options) {
+    //console.log(options);
     this.setData({
-      artype:options.artype
+      aid: options.aid,
+      keys: passwd.getUserKey(options.aid)
     })   
   },
-  // 地址选择
-  bindAddrPickerChange : function(e){
-    console.log('Addrpicker发送选择改变，携带值为', e.detail.value)
+
+  /**
+   * 点击名字打卡
+   */
+  click: function (e) {
+    console.log(e);
+    this.data.id = e.currentTarget.dataset.id;
+    //console.log(id);
+    //key = this.data.keys[id].key;
+    //console.log(key);
     this.setData({
-      addrIndex: e.detail.value
+      hiddenKey: !this.data.hiddenKey,
+      card_id: e.currentTarget.dataset.card,
+      name: e.currentTarget.dataset.name
     })
   },
-  bindToastTap:function(){
-      console.log('预定成功')
+
+  /**
+   * 获取输入的 key
+   */
+  getKey: function (e) {
+    //console.log(e);
+    this.data.key = e.detail.value;
+  },
+
+  /**
+   * 判断 key 值
+   */
+  keyCheck: function (e) {
+    if (this.data.key == this.data.keys[this.data.id].key) { // 打卡成功
+      //console.log(this.data.id);
+      //console.log(this.data.card_id)
+      //console.log(this.data.name)
+
+      // 打卡记录
+      var log = 'ID：' + this.data.card_id + ', NAME：' + this.data.name + ', TIME：' + util.formatTime(new Date()) + "\n";
+
+      const fs = wx.getFileSystemManager()
+      fs.writeFileSync(`${wx.env.USER_DATA_PATH}/log.txt`, log, 'utf8')
+      
       this.setData({
-          bookToastHidden:false
+        hiddenKey: true,
+        hiddenAlert: true,
+        bookToastHidden: false
       })
-  },
-  hideToast:function(){
-    this.setData({
-          bookToastHidden:true
+
+    } else { // key error
+      this.setData({
+        hiddenKey: false,
+        hiddenAlert: false
       })
+    }
   },
-  // 日期选择
-  bindDateChange: function(e){
-    console.log('date picker发送选择改变，携带值为', e.detail.value)
+
+  /**
+   * 取消提交
+   */
+  keyCancel: function (e) {
+    //console.log(e);
     this.setData({
-          date: e.detail.value
+      hiddenKey: true,
+      hiddenAlert: true
     })
   },
-  // 时间选择
-  bindTimeChange: function(e){
-    console.log('time picker发送选择改变，携带值为', e.detail.value)
+
+  /**
+   * 隐藏打卡成功提示
+   */
+  hideToast: function () {
     this.setData({
-          time: e.detail.value
+      bookToastHidden: true
     })
   }
   

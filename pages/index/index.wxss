@@ -79,7 +79,7 @@
     width:100%;
     box-sizing: border-box;
     padding:20rpx 10rpx;
-    background:url(../../images/black_line.png) repeat;
+    /*background:url(../../images/black_line.png) repeat;*/
     color:#fff;
 }
 .nav_top_items{
